@@ -1,0 +1,12 @@
+[
+  {
+    "Name": "Lion",
+    "Age": 12,
+    "LastActive": "King of the jungle"
+  },
+  {
+    "Name": "Elephant",
+    "Age": 20,
+    "LastActive": "Big and slow"
+  }
+]

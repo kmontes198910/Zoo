@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  zoo-backend:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development # Cambiar a Production
+      - ASPNETCORE_URLS=http://0.0.0.0:80;https://0.0.0.0:443
+      - DATABASE_URL=postgres://postgres:OGFlYTMxMTFiODcwMTA1NWFhMjAxZmJh@postgres-13:5432/zoo
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=MzUzYjk1YzlhYmJjZjZlNjI4ODBmMTE5
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/app/zoo.pfx
+    ports:
+      - "5000:80"
+      - "5001:443"

@@ -1,0 +1,24 @@
+version: '3.4'
+
+volumes:
+  postgres-13_data:
+    name: postgres-13_data
+    
+services:
+  zoo-backend:
+    image: ${REGISTRY:-zoo}/zoo.backend:${PLATFORM:-linux}-${TAG:-latest}
+    build:
+      context: .
+      dockerfile: apps/ZooBackend/Dockerfile
+    depends_on:
+      - postgres-13
+
+  postgres-13:
+    image: postgres:13.2
+    container_name: postgres-13
+    hostname: postgres-13
+    restart: unless-stopped
+    volumes:
+      - postgres-13_data:/var/lib/postgresql/data
+    env_file:
+      - database.env # postgres configuration
